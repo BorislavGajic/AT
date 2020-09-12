@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-14.0.2">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/WildFly 11.0 Runtime">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.ejb"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="src/resources/mysql-connector-java-5.1.48.jar"/>
+	<classpathentry kind="src" path="/AT-Chat-war"/>
+	<classpathentry kind="lib" path="jboss-vfs-3.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="/AT-Chat-war/WebContent/WEB-INF/lib/gson-2.8.2.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

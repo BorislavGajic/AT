@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: AT-Chat-jarClient.jar
+Dependencies: deployment.AT-Chat-ear.ear.AT-Chat-war.war
+
