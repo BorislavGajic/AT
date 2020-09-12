@@ -87,7 +87,7 @@ public class Node {
 			}
 
 			try {
-				TimeUnit.SECONDS.sleep(10);
+				TimeUnit.SECONDS.sleep(20);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
