@@ -2,7 +2,7 @@ package agents;
 
 import javax.ejb.Stateful;
 
-//import jms.JMSQueue;
+import jms.JMSQueue;
 import model.ACLPoruka;
 import model.AID;
 import model.Agent;
@@ -21,7 +21,7 @@ public class Pong extends Agent {
 			aclPoruka.setConversationId(poruka.getConversationId());
 			aclPoruka.setContent("vratio");
 			aclPoruka.setPerformative(Performative.INFORM);
-			//new JMSQueue(aclPoruka);
+			new JMSQueue(aclPoruka);
 		}
 	}
 }

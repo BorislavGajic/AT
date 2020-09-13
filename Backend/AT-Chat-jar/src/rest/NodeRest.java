@@ -35,7 +35,7 @@ import ws.WSEndPoint;
 @Path("/node")
 public class NodeRest {
 	private String currentIp;
-	private String masterIp = "http://56ff49170086.ngrok.io";
+	private String masterIp = "http://1ca5aa790c9d.ngrok.io";
 	@EJB
 	WSEndPoint ws;
 	@EJB
@@ -50,7 +50,7 @@ public class NodeRest {
 		database.getAgentskiCentri().add(a);
 
 		ResteasyClient client = new ResteasyClientBuilder().build();
-		ResteasyWebTarget rtarget = client.target(a.getAddress() + "/ATProjectWAR/rest/node/nodes");
+		ResteasyWebTarget rtarget = client.target(a.getAddress() + "/AT-chat-war/rest/node/nodes");
 		Response response = rtarget.request(MediaType.APPLICATION_JSON)
 				.post(Entity.entity(database.getAgentskiCentri(), MediaType.APPLICATION_JSON));
 		System.out.println(database.getAgentskiCentri().toString());
@@ -61,13 +61,13 @@ public class NodeRest {
 			System.out.println(at.getAddress() + " "+ a.getAddress());
 			ResteasyClient client2 = new ResteasyClientBuilder().build();
 			ResteasyWebTarget rtarget2 = client2
-					.target(at.getAddress() + "/ATProjectWAR/rest/node/node");
+					.target(at.getAddress() + "/AT-chat-war/rest/node/node");
 			Response response2 = rtarget2.request(MediaType.APPLICATION_JSON)
 					.post(Entity.entity(a, MediaType.APPLICATION_JSON));
 		}
 		
 		ResteasyClient client3 = new ResteasyClientBuilder().build();
-		ResteasyWebTarget rtarget3 = client3.target(a.getAddress() + "/ATProjectWAR/rest/node/agents/classes");
+		ResteasyWebTarget rtarget3 = client3.target(a.getAddress() + "/AT-chat-war/rest/node/agents/classes");
 		Response response3 = rtarget3.request(MediaType.APPLICATION_JSON).get();
 		List<AgentType> list = response3.readEntity(ArrayList.class);
 		System.out.println("Primio sam nove tipove" + list);
@@ -77,12 +77,12 @@ public class NodeRest {
 				continue;
 			ResteasyClient client4 = new ResteasyClientBuilder().build();
 			ResteasyWebTarget rtarget4 = client4
-					.target("http://" + at.getAddress() + ":8080/ATProjectWAR/rest/node/agents/classes");
+					.target("http://" + at.getAddress() + ":8080/AT-chat-war/rest/node/agents/classes");
 			Response response4 = rtarget4.request(MediaType.APPLICATION_JSON)
 					.post(Entity.entity(list, MediaType.APPLICATION_JSON));
 		}
 		ResteasyClient client5 = new ResteasyClientBuilder().build();
-		ResteasyWebTarget rtarget5 = client5.target(a.getAddress() + "/ATProjectWAR/rest/node/agents/running");
+		ResteasyWebTarget rtarget5 = client5.target(a.getAddress() + "/AT-chat-war/rest/node/agents/running");
 
 		try {
 			Response response5 = rtarget5.request(MediaType.APPLICATION_JSON)
@@ -97,7 +97,7 @@ public class NodeRest {
 						continue;
 					ResteasyClient client6 = new ResteasyClientBuilder().build();
 					ResteasyWebTarget rtarget6 = client6
-							.target(at.getAddress() + "/ATProjectWAR/rest/node/node/" + a.getAddress());
+							.target(at.getAddress() + "/AT-chat-war/rest/node/node/" + a.getAddress());
 					Response response6 = rtarget6.request(MediaType.APPLICATION_JSON).delete();
 				}
 			}

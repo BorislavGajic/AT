@@ -105,7 +105,7 @@ public class MDBConsumer implements MessageListener {
 					ACLPoruka acln1 = new ACLPoruka(acl, i);
 					ResteasyClient client = new ResteasyClientBuilder().build();
 					ResteasyWebTarget target = client
-							.target(lista.get(i).getId().getHost().getAddress() + "/ATProjectWAR/rest/messages");
+							.target(lista.get(i).getId().getHost().getAddress() + "/AT-chat-war/rest/messages");
 					target.request(MediaType.APPLICATION_JSON).post(Entity.entity(acln1, MediaType.APPLICATION_JSON));
 				}
 			}

@@ -27,7 +27,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 @Path("/")
 public class Node {
 	private String currentIp;
-	private String masterIp = "http://56ff49170086.ngrok.io";
+	private String masterIp = "http://1ca5aa790c9d.ngrok.io";
 	@EJB
 	Data database;
 
@@ -39,7 +39,7 @@ public class Node {
 					continue;
 				
 				ResteasyClient client5 = new ResteasyClientBuilder().build();
-				ResteasyWebTarget rtarget5 = client5.target(at.getAddress() + "/ATProjectWAR/rest/node/node");
+				ResteasyWebTarget rtarget5 = client5.target(at.getAddress() + "/AT-chat-war/rest/node/node");
 				
 				try {
 					System.out.println(at.getAddress() + "--------HB1");
@@ -150,7 +150,7 @@ public class Node {
 		// – nov ne-master cvor kontaktira master cvor koji ga registruje
 		ResteasyClient client = new ResteasyClientBuilder().build();
 		AgentskiCentar a = new AgentskiCentar("8080", connection);
-		ResteasyWebTarget rtarget = client.target(masterIp + "/ATProjectWAR/rest/node/register");
+		ResteasyWebTarget rtarget = client.target(masterIp + "/AT-chat-war/rest/node/register");
 		Response response = rtarget.request(MediaType.APPLICATION_JSON)
 				.post(Entity.entity(a, MediaType.APPLICATION_JSON));
 		return;

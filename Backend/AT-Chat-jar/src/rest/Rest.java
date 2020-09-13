@@ -37,6 +37,7 @@ import model.AgentskiCentar;
 import model.AgentType;
 import model.Performative;
 import ws.WSEndPoint;
+
 @LocalBean
 @Path("")
 public class Rest {
@@ -156,7 +157,7 @@ public class Rest {
 					if (at.getAddress().equals(currentIp))
 						continue;
 					ResteasyClient client2 = new ResteasyClientBuilder().build();
-					ResteasyWebTarget rtarget2 = client2.target(at.getAddress() + "/ATProjectWAR/rest/node/agents/running");
+					ResteasyWebTarget rtarget2 = client2.target(at.getAddress() + "/AT-Chat-war/rest/node/agents/running");
 					System.out.println(database.getAgents());
 					Response response2 = rtarget2.request(MediaType.APPLICATION_JSON)
 							.post(Entity.entity(database.getAgents(), MediaType.APPLICATION_JSON));
