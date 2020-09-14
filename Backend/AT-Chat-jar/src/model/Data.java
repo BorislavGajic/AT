@@ -30,6 +30,16 @@ public class Data {
 		a1.setModule("abc");
 		a1.setName("Pong");
 		types.add(a1);
+		
+		AgentType a2 = new AgentType();
+		a2.setModule("abc");
+		a2.setName("Initiator");
+		types.add(a2);
+		
+		AgentType a3 = new AgentType();
+		a3.setModule("abc");
+		a3.setName("Participant");
+		types.add(a3);
 
 	}
 

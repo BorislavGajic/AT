@@ -26,6 +26,9 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import com.google.gson.Gson;
+
+import agents.Initiator;
+import agents.Participant;
 import agents.Ping;
 import agents.Pong;
 import model.Data;
@@ -143,6 +146,18 @@ public class Rest {
 					AID a1 = new AID(name, host, new AgentType(type,null));
 					pong.setId(a1);
 					database.getAgents().put(pong.getId().getName(), pong);
+					break;
+				case "Initiator":
+					Initiator initiator = new Initiator();
+					AID a2 = new AID(name, host, new AgentType(type,null));
+					initiator.setId(a2);
+					database.getAgents().put(initiator.getId().getName(), initiator);
+					break;
+				case "Participant":
+					Participant participant = new Participant();
+					AID a3 = new AID(name, host, new AgentType(type,null));
+					participant.setId(a3);
+					database.getAgents().put(participant.getId().getName(), participant);
 					break;
 				default:
 					break;

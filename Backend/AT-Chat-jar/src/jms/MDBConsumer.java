@@ -30,6 +30,7 @@ import model.AID;
 import model.Agent;
 import model.AgentskiCentar;
 import model.Data;
+import ws.UserEndPoint;
 import ws.WSEndPoint;
 
 @MessageDriven(activationConfig = {
@@ -39,7 +40,7 @@ import ws.WSEndPoint;
 public class MDBConsumer implements MessageListener {
 
 	@EJB
-	WSEndPoint ws;
+	UserEndPoint ws;
 
 	@EJB
 	Data database;

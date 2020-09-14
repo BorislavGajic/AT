@@ -14,7 +14,7 @@ public class Ping extends Agent {
 
 	@Override
 	public void handleMessage(ACLPoruka poruka) {
-		System.out.println("Ping has rcived message, well see what it does. " + poruka);
+		System.out.println("Ping je primio poruku: " + poruka);
 		if (poruka.getPerformative().equals(Performative.REQUEST)) {
 			ACLPoruka aclPoruka = new ACLPoruka();
 			aclPoruka.setSender(this.getId());
@@ -24,7 +24,7 @@ public class Ping extends Agent {
 			aclPoruka.setContent("vratio");
 			new JMSQueue(aclPoruka);
 		} else if (poruka.getPerformative().equals(Performative.INFORM)) {
-			System.out.println("Pong has responded, awesome.");
+			System.out.println("Pong je odgovorio.");
 		}
 	}
 
