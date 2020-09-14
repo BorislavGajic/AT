@@ -38,7 +38,7 @@ public class Participant extends Agent{
 			break;
 			
 			default:
-				System.out.println("Performative not supported.");
+				System.out.println("Los case u participantu.");
 		}
 		
 	}
@@ -65,7 +65,7 @@ public class Participant extends Agent{
 	}
 	
 	private void handleRejection(ACLPoruka poruka) {
-		System.out.println("Agent: [" + this.getId().getName() + " - " + this.getId().getType().getName() + "] is refused - ok:(");
+		System.out.println("Agent: [" + this.getId().getName() + " - " + this.getId().getType().getName() + "] is refused - ali to je okej jer to znaci kraj ciklusa");
 
 		
 	}

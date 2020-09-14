@@ -42,18 +42,18 @@ public class Initiator extends Agent{
 			break;
 
 		case FAILURE:
-			System.out.println("PROCESS ABORTED: Choosen agent: [" + poruka.getSender().getName() + " - "
-					+ poruka.getSender().getType().getName() + "] failed to execute the task.");
+			System.out.println("Prekid: izabrani agent: [" + poruka.getSender().getName() + " - "
+					+ poruka.getSender().getType().getName() + "] FAILURE u izvrsenje taska.");
 			break;
 
 		case INFORM:
 			System.out.println(
-					"Choosen agent: [" + poruka.getSender().getName() + " - " + poruka.getSender().getType().getName()
-							+ "] successfully executed the task. Returned: " + poruka.getContent());
+					"Izabrani agent: [" + poruka.getSender().getName() + " - " + poruka.getSender().getType().getName()
+							+ "] uspesno izvrsio task. Return: " + poruka.getContent());
 			break;
 
 		default:
-			System.out.println("Performative not supported.");
+			System.out.println("Los case u initiatoru.");
 		}
 	}
 	
@@ -66,8 +66,8 @@ public class Initiator extends Agent{
 					+ poruka.getSender().getType().getName() + "] offered: " + offer);
 			
 		} catch (Exception e) {
-			System.out.println("OFFER CANCELED: Agent: [" + poruka.getSender().getName() + " - "
-					+ poruka.getSender().getType().getName() + "] sends an invalid value.");
+			System.out.println("OFFER zatvoren zbog exceptiona: Agent: [" + poruka.getSender().getName() + " - "
+					+ poruka.getSender().getType().getName() + "] poslao losu vrednost.");
 			addOfferToSession(poruka.getConversationId(), poruka.getSender(), -1);
 		}
 
@@ -84,7 +84,7 @@ public class Initiator extends Agent{
 	
 	private void handleRefuse(ACLPoruka poruka) {
 		System.out.println("Agent: [" + poruka.getSender().getName() + " - " + poruka.getSender().getType().getName()
-				+ "]  refused call for proposal.");
+				+ "]  REFUSED .");
 
 	}
 	
@@ -95,12 +95,12 @@ public class Initiator extends Agent{
 		AID acceptedAgent = getBestOffer();
 
 		if (acceptedAgent == null) {
-			System.out.println("All agents refused to propose.");
+			System.out.println("Svi agenti su odbili propose.");
 			return;
 		}
 
 		System.out.println(
-				"The choosen agent: [" + acceptedAgent.getName() + " - " + acceptedAgent.getType().getName() + "]");
+				"Izabrani agent: [" + acceptedAgent.getName() + " - " + acceptedAgent.getType().getName() + "]");
 	
 		ArrayList<AID> agents = new ArrayList<AID>();
 
@@ -195,15 +195,15 @@ public class Initiator extends Agent{
 	
 		new JMSQueue(msgToParticipant);
 		
-		System.out.println("CALL FOR PROPOSAL MESSAGE FROM INIT: " + msgToParticipant.getContent().toString() + "FROM " + msgToParticipant.getSender().toString());
+		System.out.println("Request poziva call for proposal: " + msgToParticipant.getContent().toString() + "iz " + msgToParticipant.getSender().toString());
 		
 
 
 		}
 	
 	private void waitForParticipans(ACLPoruka poruka, int sleep) {
-		System.out.println("Agent: [" + this.getId().getName() + " - Initiator] waits for proposals to collect for "
-				+ sleep + " seconds.");
+		System.out.println("Agent: [" + this.getId().getName() + " - Initiator] ceka "
+				+ sleep + " sekundi sve PROPOSE-ale.");
 
 		ACLPoruka pause = new ACLPoruka();
 		AID receivers[] = new AID[] {};
